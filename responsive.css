@@ -1,0 +1,116 @@
+/* =====================================
+   TABLETS
+===================================== */
+
+@media (max-width: 950px) {
+
+    .sidebar {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .main-content {
+        padding: 22px;
+    }
+
+}
+
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 650px) {
+
+    .app-container {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 12px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    .logo h2 {
+        font-size: 18px;
+    }
+
+    .menu {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 7px;
+        padding-bottom: 5px;
+    }
+
+    .menu-item {
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 11px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 17px;
+    }
+
+    .topbar h1 {
+        font-size: 19px;
+    }
+
+    .welcome-card {
+        padding: 23px;
+    }
+
+    .welcome-card h2 {
+        font-size: 21px;
+    }
+
+    .dashboard-grid,
+    #taskList,
+    #subjectList,
+    #eventList,
+    #routineList,
+    #financeList,
+    #ideaList,
+    #goalList,
+    #noteList,
+    #reminderList {
+        grid-template-columns: 1fr;
+    }
+
+    .finance-summary {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    form input,
+    form select,
+    form textarea,
+    form button {
+        width: 100%;
+        flex: auto;
+    }
+
+    .quick-actions {
+        flex-direction: column;
+    }
+
+    .quick-actions button {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#39b54a">
+    <meta name="description" content="Organiza tu día a día a tu manera.">
+
+    <title>MY DAILY LIFE</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- MENÚ LATERAL -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>MY DAILY LIFE</h2>
+                <p>Organiza tu día a día</p>
+            </div>
+
+            <nav class="menu">
+
+                <button class="menu-item active" data-section="inicio">🏠 Inicio</button>
+                <button class="menu-item" data-section="estudios">📚 Estudios</button>
+                <button class="menu-item" data-section="tareas">✅ Tareas</button>
+                <button class="menu-item" data-section="calendario">📅 Calendario</button>
+                <button class="menu-item" data-section="rutinas">🔄 Rutinas</button>
+                <button class="menu-item" data-section="finanzas">💰 Finanzas</button>
+                <button class="menu-item" data-section="ideas">💡 Ideas y proyectos</button>
+                <button class="menu-item" data-section="metas">🎯 Metas</button>
+                <button class="menu-item" data-section="notas">📝 Notas y diario</button>
+                <button class="menu-item" data-section="recordatorios">🔔 Recordatorios</button>
+                <button class="menu-item" data-section="estadisticas">📊 Estadísticas</button>
+                <button class="menu-item" data-section="configuracion">⚙️ Configuración</button>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>MY DAILY LIFE © 2026</p>
+            </div>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <main class="main-content">
+
+            <!-- ENCABEZADO -->
+
+            <header class="topbar">
+
+                <div>
+                    <h1>Mi espacio personal</h1>
+                    <p id="currentDate">Cargando fecha...</p>
+                </div>
+
+                <div class="topbar-buttons">
+
+                    <button id="themeButton" title="Cambiar tema">🌙</button>
+
+                    <button id="notificationButton" title="Notificaciones">🔔</button>
+
+                </div>
+
+            </header>
+
+
+            <!-- INICIO -->
+
+            <section id="inicio" class="content-section active">
+
+                <div class="welcome-card">
+
+                    <h2>¡Bienvenido a tu espacio! 👋</h2>
+
+                    <p>
+                        Organiza tus actividades, cumple tus objetivos
+                        y administra tu día a día.
+                    </p>
+
+                    <h3 id="greeting">¡Hola!</h3>
+
+                </div>
+
+                <div class="section-heading">
+                    <h2>Resumen de mi día</h2>
+                    <p>Todo lo importante en un solo lugar.</p>
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <article class="dashboard-card">
+                        <span>📚</span>
+                        <h3>Estudios</h3>
+                        <p>Organiza tus materias.</p>
+                        <button data-go="estudios">Entrar</button>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <span>✅</span>
+                        <h3>Tareas</h3>
+                        <p>Consulta tus pendientes.</p>
+                        <button data-go="tareas">Entrar</button>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <span>💰</span>
+                        <h3>Finanzas</h3>
+                        <p>Administra tu dinero.</p>
+                        <button data-go="finanzas">Entrar</button>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <span>🎯</span>
+                        <h3>Mis metas</h3>
+                        <p>Trabaja en tus objetivos.</p>
+                        <button data-go="metas">Entrar</button>
+                    </article>
+
+                </div>
+
+                <div class="section-heading">
+                    <h2>Accesos rápidos</h2>
+                </div>
+
+                <div class="quick-actions">
+
+                    <button data-go="tareas">➕ Nueva tarea</button>
+                    <button data-go="notas">📝 Nueva nota</button>
+                    <button data-go="calendario">📅 Ver calendario</button>
+                    <button data-go="recordatorios">🔔 Recordatorios</button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ESTUDIOS -->
+
+            <section id="estudios" class="content-section">
+
+                <h2>📚 Mis estudios</h2>
+
+                <p>Organiza tus materias y actividades escolares.</p>
+
+                <form id="subjectForm">
+
+                    <input type="text" id="subjectName"
+                        placeholder="Nombre de la materia" required>
+
+                    <input type="text" id="subjectTeacher"
+                        placeholder="Nombre del profesor">
+
+                    <button type="submit">Agregar materia</button>
+
+                </form>
+
+                <div id="subjectList"></div>
+
+            </section>
+
+
+            <!-- TAREAS -->
+
+            <section id="tareas" class="content-section">
+
+                <h2>✅ Mis tareas</h2>
+
+                <p>Organiza tus pendientes y actividades.</p>
+
+                <form id="taskForm">
+
+                    <input type="text" id="taskTitle"
+                        placeholder="Nombre de la tarea" required>
+
+                    <input type="date" id="taskDate">
+
+                    <select id="taskPriority">
+                        <option value="Baja">Prioridad baja</option>
+                        <option value="Media" selected>Prioridad media</option>
+                        <option value="Alta">Prioridad alta</option>
+                    </select>
+
+                    <button type="submit">Agregar tarea</button>
+
+                </form>
+
+                <div id="taskList"></div>
+
+            </section>
+
+
+            <!-- CALENDARIO -->
+
+            <section id="calendario" class="content-section">
+
+                <h2>📅 Mi calendario</h2>
+
+                <p>Consulta y organiza tus fechas importantes.</p>
+
+                <form id="eventForm">
+
+                    <input type="text" id="eventTitle"
+                        placeholder="Nombre del evento" required>
+
+                    <input type="date" id="eventDate" required>
+
+                    <input type="time" id="eventTime">
+
+                    <button type="submit">Agregar evento</button>
+
+                </form>
+
+                <div id="eventList"></div>
+
+            </section>
+
+
+            <!-- RUTINAS -->
+
+            <section id="rutinas" class="content-section">
+
+                <h2>🔄 Mis rutinas</h2>
+
+                <p>Construye hábitos y organiza tus actividades diarias.</p>
+
+                <form id="routineForm">
+
+                    <input type="text" id="routineName"
+                        placeholder="Nombre de la rutina" required>
+
+                    <select id="routineFrequency">
+                        <option value="Diaria">Todos los días</option>
+                        <option value="Semanal">Cada semana</option>
+                        <option value="Personalizada">Personalizada</option>
+                    </select>
+
+                    <button type="submit">Agregar rutina</button>
+
+                </form>
+
+                <div id="routineList"></div>
+
+            </section>
+
+
+            <!-- FINANZAS -->
+
+            <section id="finanzas" class="content-section">
+
+                <h2>💰 Mis finanzas</h2>
+
+                <p>Administra tus ingresos, gastos y ahorros.</p>
+
+                <div class="finance-summary">
+
+                    <article class="dashboard-card">
+                        <h3>Ingresos</h3>
+                        <p id="totalIncome">$0.00</p>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <h3>Gastos</h3>
+                        <p id="totalExpenses">$0.00</p>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <h3>Balance</h3>
+                        <p id="totalBalance">$0.00</p>
+                    </article>
+
+                </div>
+
+                <form id="financeForm">
+
+                    <input type="text" id="financeDescription"
+                        placeholder="Descripción" required>
+
+                    <input type="number" id="financeAmount"
+                        placeholder="Cantidad en pesos"
+                        min="0.01" step="0.01" required>
+
+                    <select id="financeType">
+                        <option value="Ingreso">Ingreso</option>
+                        <option value="Gasto">Gasto</option>
+                    </select>
+
+                    <button type="submit">Registrar movimiento</button>
+
+                </form>
+
+                <div id="financeList"></div>
+
+            </section>
+
+
+            <!-- IDEAS -->
+
+            <section id="ideas" class="content-section">
+
+                <h2>💡 Ideas y proyectos</h2>
+
+                <p>Guarda tus ideas y proyectos personales.</p>
+
+                <form id="ideaForm">
+
+                    <input type="text" id="ideaTitle"
+                        placeholder="Nombre de tu idea" required>
+
+                    <textarea id="ideaDescription"
+                        placeholder="Describe tu idea..."></textarea>
+
+                    <button type="submit">Guardar idea</button>
+
+                </form>
+
+                <div id="ideaList"></div>
+
+            </section>
+
+
+            <!-- METAS -->
+
+            <section id="metas" class="content-section">
+
+                <h2>🎯 Mis metas</h2>
+
+                <p>Establece objetivos y registra tu progreso.</p>
+
+                <form id="goalForm">
+
+                    <input type="text" id="goalTitle"
+                        placeholder="Nombre de tu meta" required>
+
+                    <input type="date" id="goalDate">
+
+                    <button type="submit">Crear meta</button>
+
+                </form>
+
+                <div id="goalList"></div>
+
+            </section>
+
+
+            <!-- NOTAS -->
+
+            <section id="notas" class="content-section">
+
+                <h2>📝 Mis notas y diario</h2>
+
+                <p>Escribe tus ideas, pensamientos y apuntes.</p>
+
+                <form id="noteForm">
+
+                    <input type="text" id="noteTitle"
+                        placeholder="Título de la nota" required>
+
+                    <textarea id="noteContent"
+                        placeholder="Escribe aquí..." required></textarea>
+
+                    <button type="submit">Guardar nota</button>
+
+                </form>
+
+                <div id="noteList"></div>
+
+            </section>
+
+
+            <!-- RECORDATORIOS -->
+
+            <section id="recordatorios" class="content-section">
+
+                <h2>🔔 Mis recordatorios</h2>
+
+                <p>No olvides tus actividades importantes.</p>
+
+                <form id="reminderForm">
+
+                    <input type="text" id="reminderTitle"
+                        placeholder="¿Qué necesitas recordar?" required>
+
+                    <input type="datetime-local" id="reminderDate" required>
+
+                    <button type="submit">Crear recordatorio</button>
+
+                </form>
+
+                <div id="reminderList"></div>
+
+            </section>
+
+
+            <!-- ESTADÍSTICAS -->
+
+            <section id="estadisticas" class="content-section">
+
+                <h2>📊 Mis estadísticas</h2>
+
+                <p>Observa tu actividad y progreso personal.</p>
+
+                <div class="dashboard-grid">
+
+                    <article class="dashboard-card">
+                        <h3>Tareas completadas</h3>
+                        <p id="completedTasks">0</p>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <h3>Tareas pendientes</h3>
+                        <p id="pendingTasks">0</p>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <h3>Mis metas</h3>
+                        <p id="totalGoals">0</p>
+                    </article>
+
+                </div>
+
+                <div id="statisticsContent"></div>
+
+            </section>
+
+
+            <!-- CONFIGURACIÓN -->
+
+            <section id="configuracion" class="content-section">
+
+                <h2>⚙️ Configuración</h2>
+
+                <p>Personaliza tu espacio de trabajo.</p>
+
+                <div class="settings-card">
+
+                    <h3>🎨 Apariencia</h3>
+
+                    <button id="lightThemeButton">Tema claro</button>
+
+                    <button id="darkThemeButton">Tema oscuro</button>
+
+                </div>
+
+                <div class="settings-card">
+
+                    <h3>🔔 Notificaciones</h3>
+
+                    <p>Activa los permisos de notificación del navegador.</p>
+
+                    <button id="enableNotifications">
+                        Activar notificaciones
+                    </button>
+
+                </div>
+
+                <div class="settings-card">
+
+                    <h3>💾 Mis datos</h3>
+
+                    <p>Tus datos se guardarán localmente en este dispositivo.</p>
+
+                    <button id="exportData">Exportar mis datos</button>
+
+                </div>
+
+                <div class="card backup-card">
+
+                    <h3>🗂️ Copias de seguridad</h3>
+
+                    <p>
+                        Mantén tus datos protegidos. Puedes guardar
+                        una copia o recuperar tu información.
+                    </p>
+
+                    <div class="backup-actions">
+
+                        <button
+                            class="backup-button export-button"
+                            onclick="exportData()">
+                            📥 Exportar mis datos
+                        </button>
+
+                        <label
+                            class="backup-button import-button"
+                            for="backupFile">
+                            📤 Importar copia
+                        </label>
+
+                        <input
+                            type="file"
+                            id="backupFile"
+                            accept=".json,application/json"
+                            onchange="importData(this.files[0])"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PIE DE PÁGINA -->
+
+            <footer class="main-footer">
+
+                <p>MY DAILY LIFE</p>
+
+                <small>Organiza tu día a día a tu manera.</small>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- ARCHIVOS JAVASCRIPT -->
+
+    <script src="database.js?v=4"></script>
+    <script src="navigation.js"></script>
+    <script src="app.js"></script>
+
+    <script src="tasks.js"></script>
+    <script src="subjects.js"></script>
+    <script src="calendar.js"></script>
+    <script src="routines.js"></script>
+    <script src="finances.js"></script>
+    <script src="ideas.js"></script>
+    <script src="goal.js"></script>
+    <script src="notes.js"></script>
+    <script src="reminders.js?v=4"></script>
+    <script src="backup.js"></script>
+
+
+    <!-- INICIALIZACIÓN -->
+
+    <script>
+
+        async function initializeApp() {
+
+            const modules = [
+
+                ["Base de datos", connectMyDailyLifeDB],
+
+                ["Tareas", showTasks],
+                ["Estudios", showSubjects],
+                ["Calendario", showEvents],
+                ["Rutinas", showRoutines],
+                ["Finanzas", showFinances],
+                ["Ideas", showIdeas],
+                ["Metas", showGoals],
+                ["Notas", showNotes],
+                ["Recordatorios", showReminders]
+
+            ];
+
+            try {
+
+                console.log("Iniciando MY DAILY LIFE...");
+
+                for (const [name, initialize] of modules) {
+
+                    console.log("Cargando:", name);
+
+                    await initialize();
+
+                    console.log("Correcto:", name);
+
+                }
+
+                await checkReminders();
+
+                console.log("MY DAILY LIFE está lista.");
+
+            } catch (error) {
+
+                console.error("Error durante la inicialización:", error);
+
+                alert(
+                    "No se pudo cargar el módulo: " +
+                    error.message +
+                    ". Revisa la consola."
+                );
+
+            }
+
+        }
+
+        initializeApp();
+
+    </script>
+
+
+    <!-- SERVICE WORKER -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", async () => {
+
+                try {
+
+                    await navigator.serviceWorker.register("./service-worker.js");
+
+                    console.log("MY DAILY LIFE: Service Worker activado 💚");
+
+                } catch (error) {
+
+                    console.error("Error al registrar:", error);
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
